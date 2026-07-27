@@ -1,0 +1,12 @@
+{
+  "name": "ai-sales-agent",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI Sales Agent application with Python FastAPI backend and React Vite frontend",
+  "scripts": {
+    "dev": "npm --prefix client run dev",
+    "build": "npm --prefix client run build",
+    "preview": "npm --prefix client run preview",
+    "install:client": "npm --prefix client install"
+  }
+}
