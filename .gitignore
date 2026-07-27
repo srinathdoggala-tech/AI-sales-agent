@@ -7,6 +7,8 @@
 *.pyz
 
 .venv
+venv
+venv/
 
 .DS_Store
 
