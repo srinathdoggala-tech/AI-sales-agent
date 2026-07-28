@@ -245,10 +245,14 @@ def main() -> None:
 
     elif mode == "serve":
         from voice_agent.telephony.websocket_server import start_server
+        from voice_agent.telephony.api_server import start_api_server
 
-        logger.info("Starting AI Sales Call Agent server...")
-        start_server(host=WS_HOST, port=WS_PORT)
-        logger.info("WebSocket media stream server running on %s:%d", WS_HOST, WS_PORT)
+        logger.info("Starting AI Sales Call Agent servers...")
+        start_server(host=WS_HOST, port=int(WS_PORT))
+        logger.info("WebSocket media stream server running on %s:%s", WS_HOST, WS_PORT)
+
+        start_api_server(host=WS_HOST, port=8000)
+        logger.info("HTTP API server for Mobile App running on %s:8000", WS_HOST)
 
         # Keep alive
         def _shutdown(sig, frame):
