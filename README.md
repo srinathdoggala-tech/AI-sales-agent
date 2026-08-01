@@ -245,7 +245,7 @@ Results: 27 passed, 0 failed ✓
 ## 📁 Project Structure
 
 ```
-Voxify/
+AI-sales-agent/
 ├── voice_agent/
 │   ├── main.py                    # CLI: serve | test | simulate
 │   │
@@ -306,8 +306,8 @@ This is the single source of truth for your agent's identity. Change anything he
 ```python
 @dataclass
 class BusinessContext:
-    agent_name: str = "Aria"                 # What the agent calls itself
-    company_name: str = "Voxify"             # Who it represents
+    agent_name: str = "Prisha"                # What the agent calls itself
+    company_name: str = "prisha.io"            # Who it represents
     value_proposition: str = "..."           # The pitch
     pricing_tiers: list[dict] = [...]        # Your plans
     objection_responses: dict = {...}        # Counter-playbook
@@ -354,7 +354,8 @@ class BusinessContext:
   <p>
     <sub>
       Built with LangGraph + Gemini + ElevenLabs + Twilio + Supabase<br>
-      MIT License · <a href="https://github.com/adityaanand0001/Voxify-Agentic-Voice-AI"><b>github.com/adityaanand0001/Voxify-Agentic-Voice-AI</b></a>
+      MIT License · <a href="https://github.com/srinathdoggala-tech/AI-sales-agent"><b>github.com/srinathdoggala-tech/AI-sales-agent</b></a>
     </sub>
   </p>
 </div>
+
