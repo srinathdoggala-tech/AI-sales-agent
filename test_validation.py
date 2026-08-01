@@ -1,7 +1,7 @@
 """Validation test suite for AI Sales Call Agent."""
 
-import sys
 import os
+import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from voice_agent.state.schema import CallState, Timeline, Authority, Sentiment, Decision
@@ -41,8 +41,7 @@ update_state_score(s2)
 check("Warm lead decision", s2.decision.value, "STRONG_FOLLOWUP")
 
 s3 = CallState(budget=None, timeline=Timeline.SIX_PLUS_MONTHS, authority=Authority.RESEARCHER,
-               need_level=0.1, engagement=0.2, sentiment=Sentiment.NEGATIVE,
-               history=[{"speaker": "user", "text": "hi"}] * 4)
+               need_level=0.1, engagement=0.2, sentiment=Sentiment.NEGATIVE)
 update_state_score(s3)
 check("Cold lead decision", s3.decision.value, "DROP")
 
@@ -99,7 +98,7 @@ print("\n=== Decision Thresholds ===")
 
 thresholds = [(85, "BOOK_MEETING"), (70, "STRONG_FOLLOWUP"), (50, "NURTURE"), (25, "DROP")]
 for score_val, expected in thresholds:
-    s = CallState(lead_score=score_val, history=[{"speaker": "user", "text": "hi"}] * 4)
+    s = CallState(lead_score=score_val)
     check(f"Score {score_val}", decide(s).value, expected)
 
 # ── Graph compilation ───────────────────────────────────────

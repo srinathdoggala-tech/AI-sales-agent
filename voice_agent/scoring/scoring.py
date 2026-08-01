@@ -102,19 +102,19 @@ def decide(state: CallState) -> Decision:
     score = state.lead_score
     user_turns = sum(1 for t in state.history if t.get("speaker") == "user")
 
-    # Guard: never DROP in the first few turns unless explicit rejection
-    if user_turns < 4 and not state.objection:
+    # Explicit rejection or very negative sentiment → DROP regardless
+    if state.objection and score < 40:
+        return Decision.DROP
+    if state.sentiment == Sentiment.NEGATIVE and state.engagement <= 0.2:
+        return Decision.DROP
+
+    # Guard: during early live calls (1..3 turns), don't DROP prematurely
+    if 0 < user_turns < 4 and not state.objection:
         if score >= 80:
             return Decision.BOOK_MEETING
         if score >= 60:
             return Decision.STRONG_FOLLOWUP
         return Decision.NURTURE  # Keep the conversation going
-
-    # Explicit rejection or very negative sentiment → DROP regardless
-    if state.objection and score < 40:
-        return Decision.DROP
-    if state.sentiment == Sentiment.NEGATIVE and state.engagement < 0.2:
-        return Decision.DROP
 
     if score >= 80:
         return Decision.BOOK_MEETING

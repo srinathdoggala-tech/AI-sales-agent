@@ -40,16 +40,6 @@ class TwilioCallManager:
         resp.append(connect)
         return str(resp)
 
-    def get_from_number(self, to_number: str) -> str:
-        """Intelligently route caller ID: Indian number for +91, Intl number for rest."""
-        india_num = os.getenv("TWILIO_PHONE_NUMBER_INDIA") or os.getenv("TWILIO_PHONE_NUMBER", "")
-        intl_num = os.getenv("TWILIO_PHONE_NUMBER_INTL") or os.getenv("TWILIO_PHONE_NUMBER", "")
-
-        clean_to = to_number.strip()
-        if clean_to.startswith("+91") or clean_to.startswith("91"):
-            return india_num or self.phone_from
-        return intl_num or self.phone_from
-
     def make_call(self, to_number: str, lead_id: str, ws_base_url: str) -> dict | None:
         """Initiate an outbound call to a lead."""
         if not self.client:
@@ -57,12 +47,11 @@ class TwilioCallManager:
             return None
 
         ws_url = f"{ws_base_url}/media-stream?lead_id={lead_id}"
-        from_number = self.get_from_number(to_number)
 
         try:
             call = self.client.calls.create(
                 to=to_number,
-                from_=from_number,
+                from_=self.phone_from,
                 twiml=self.generate_twiml(ws_url),
                 status_callback=f"{ws_base_url}/call-status",
                 status_callback_event=["initiated", "ringing", "answered", "completed"],

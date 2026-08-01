@@ -9,10 +9,15 @@ import signal
 import sys
 from typing import Any
 
-# Ensure project root is in sys.path when running main.py directly
-ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-if ROOT_DIR not in sys.path:
-    sys.path.insert(0, ROOT_DIR)
+# Ensure project root is in sys.path
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
 
 from dotenv import load_dotenv
 
@@ -90,21 +95,22 @@ class CallAgent:
 
 def dry_run_sample() -> dict:
     """Run the scoring engine against a sample lead without making a call."""
-    from voice_agent.scoring.scoring import update_state_score
-
     state = CallState(
         lead_id="test-001",
         name="Sarah Chen",
         company="DataPipes Inc.",
         budget=60000,
-        timeline=Timeline.IMMEDIATE,
-        authority=Authority.DECISION_MAKER,
+        timeline="immediate",
+        authority="decision_maker",
         need_level=0.9,
         engagement=0.8,
-        sentiment=Sentiment.POSITIVE,
+        sentiment="positive",
     )
 
-    update_state_score(state)
+    score = compute_score(state)
+    decision = decide(state)
+    state.lead_score = score
+    state.decision = decision
 
     return {
         "lead": state.name,
@@ -217,12 +223,6 @@ def simulate_conversation() -> list[dict]:
 
 def main() -> None:
     """Main entry point — supports 'serve', 'test', 'simulate' modes."""
-    if hasattr(sys.stdout, "reconfigure"):
-        try:
-            sys.stdout.reconfigure(encoding="utf-8")
-        except Exception:
-            pass
-
     mode = sys.argv[1] if len(sys.argv) > 1 else "serve"
 
     if mode == "test":
@@ -230,8 +230,8 @@ def main() -> None:
         result = dry_run_sample()
         for k, v in result.items():
             print(f"  {k}: {v}")
-        print(f"\n  → Decision: {result['decision']}")
-        print("\n✓ Scoring engine works.")
+        print(f"\n  -> Decision: {result['decision']}")
+        print("\n[OK] Scoring engine works.")
 
     elif mode == "simulate":
         print("\n=== SIMULATED CONVERSATION ===\n")
@@ -240,19 +240,15 @@ def main() -> None:
             print(f"\n[Turn {t['turn']}]")
             print(f"  User:    {t['user']}")
             print(f"  Agent:   {t['agent'][:120]}")
-            print(f"  Score:   {t['score']:.1f} → {t['decision']} ({t['stage']})")
-        print("\n✓ LangGraph conversation engine works.")
+            print(f"  Score:   {t['score']:.1f} -> {t['decision']} ({t['stage']})")
+        print("\n[OK] LangGraph conversation engine works.")
 
     elif mode == "serve":
         from voice_agent.telephony.websocket_server import start_server
-        from voice_agent.telephony.api_server import start_api_server
 
-        logger.info("Starting AI Sales Call Agent servers...")
-        start_server(host=WS_HOST, port=int(WS_PORT))
-        logger.info("WebSocket media stream server running on %s:%s", WS_HOST, WS_PORT)
-
-        start_api_server(host=WS_HOST, port=8000)
-        logger.info("HTTP API server for Mobile App running on %s:8000", WS_HOST)
+        logger.info("Starting AI Sales Call Agent server...")
+        start_server(host=WS_HOST, port=WS_PORT)
+        logger.info("WebSocket media stream server running on %s:%d", WS_HOST, WS_PORT)
 
         # Keep alive
         def _shutdown(sig, frame):

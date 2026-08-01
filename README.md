@@ -1,17 +1,17 @@
 <div align="center">
   <br>
-  <pre style="font-family: monospace; font-size: 13px; line-height: 1.2;">
-██████╗ ██████╗ ██╗███████╗██╗  ██╗██╗██╗  ██╗██████╗ 
-██╔══██╗██╔══██╗██║██╔════╝██║  ██║██║██║  ██║██╔═══██╗
-██████╔╝██████╔╝██║███████╗███████║██║██║  ██║██║   ██║
-██╔═══╝ ██╔══██╗██║╚════██║██╔══██║██║██║  ██║██║   ██║
-██║     ██║  ██║██║███████║██║  ██║██║╚█████╔╝╚██████╔╝
-╚═╝     ╚═╝  ╚═╝╚═╝╚══════╝╚═╝  ╚═╝╚═╝ ╚════╝  ╚═════╝ 
+  <pre style="font-family: monospace; font-size: 14px; line-height: 1.2;">
+██╗   ██╗ ██████╗ ██╗  ██╗██╗███████╗██╗   ██╗
+██║   ██║██╔═══██╗╚██╗██╔╝██║██╔════╝╚██╗ ██╔╝
+██║   ██║██║   ██║ ╚███╔╝ ██║█████╗   ╚████╔╝ 
+╚██╗ ██╔╝██║   ██║ ██╔██╗ ██║██╔══╝    ╚██╔╝  
+ ╚████╔╝ ╚██████╔╝██╔╝ ██╗██║██║        ██║   
+  ╚═══╝   ╚═════╝ ╚═╝  ╚═╝╚═╝╚═╝        ╚═╝   
   </pre>
-  <h3>⚡ Premium Digital Experiences & AI Voice Solutions for Business Growth ⚡</h3>
+  <h3>⚡ An AI Agent That Closes Deals Over Voice ⚡</h3>
   <br>
   <p>
-    <img src="https://img.shields.io/badge/PRISHA.IO-Digital_Agency-8B5CF6?style=for-the-badge&logo=openai&logoColor=white">
+    <img src="https://img.shields.io/badge/AI_Agent-Autonomous-8B5CF6?style=for-the-badge&logo=openai&logoColor=white">
     <img src="https://img.shields.io/badge/LangGraph-State_Machine-6366f1?style=for-the-badge">
     <img src="https://img.shields.io/badge/Gemini-2.0_Flash-4285F4?style=for-the-badge&logo=google&logoColor=white">
     <img src="https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white">
@@ -25,42 +25,24 @@
 
 ---
 
-# 🤖 PRISHA.IO Agentic Voice AI — The Autonomous Business Growth Agent
+# 🤖 Voxify Agentic Voice AI — The Autonomous Voice Sales Agent
 
-**PRISHA.IO Agentic Voice AI is an autonomous AI sales agent designed to represent PRISHA.IO — making real discovery calls, qualifying prospective clients, answering business questions, and booking consultations automatically over phone calls.**
+**Voxify Agentic Voice AI is not a chatbot. It's not a demo. It's an AI agent that makes real sales calls, thinks on its feet, and books meetings — completely autonomously.**
 
-> At **PRISHA.IO**, we don't just build websites — we create digital assets and AI automation systems that increase brand value, customer trust, and business growth. This AI Voice Agent perceives, reasons, scores lead potential, and schedules business discovery sessions live on the phone.
-
-<br>
-
-## 🏢 About PRISHA.IO
-
-PRISHA.IO is a premium AI-powered digital transformation agency focused on helping local businesses and growing enterprises establish a world-class online presence.
-
-### Our Core Solutions:
-- **Premium Website Design & UI/UX Development**
-- **Custom AI Agents & Voice AI Receptionists**
-- **AI-Powered Business Automation & CRM Workflows**
-- **Lead Generation & Reservation/Appointment Systems**
-- **Google Business Profile & SEO Optimization**
-
-### Target Industries:
-- Restaurants & Cafés | Hotels & Resorts | Salons & Spas
-- Gyms & Fitness Centers | Healthcare Clinics | Real Estate
-- Educational Institutions | Professional Service Providers & Retail
+> An **AI agent** perceives, reasons, decides, and acts. Voxify does all four — over a live phone call, in real time. It listens through Whisper, reasons through Gemini + LangGraph, scores every lead on a 6-factor model, generates natural responses, and speaks through ElevenLabs. Every decision is its own.
 
 <br>
 
 ## 🧠 What Makes It An Agent
 
-| Agent Capability | How PRISHA.IO Agent Does It |
+| Agent Capability | How Voxify Does It |
 |:---|:---|
-| **Perceive** | Streaming Whisper STT transcribes incoming caller audio in real time |
-| **Reason** | Gemini 2.0 Flash analyzes sentiment, intent, authority, budget & industry requirements |
-| **Decide** | 6-factor composite scoring engine decides `BOOK_MEETING` / `STRONG_FOLLOWUP` / `NURTURE` / `DROP` |
-| **Act** | ElevenLabs TTS speaks human-like responses; Twilio bridges the live call |
-| **Learn** | LangGraph state machine tracks conversation turns & context across stages |
-| **Tools** | Supabase CRM persistence, Twilio call routing, and Discovery Call booking |
+| **Perceive** | Streaming Whisper STT transcribes audio in real time |
+| **Reason** | Gemini 2.0 Flash analyzes every utterance — sentiment, intent, objection type |
+| **Decide** | 6-factor weighted scoring engine decides BOOK / FOLLOWUP / NURTURE / DROP |
+| **Act** | ElevenLabs TTS speaks the response; Twilio bridges the call |
+| **Learn** | LangGraph state machine tracks full conversation context across turns |
+| **Tools** | CRM persistence (Supabase), call routing (Twilio), calendar booking |
 
 <br>
 
@@ -118,25 +100,25 @@ Every turn of the conversation goes through 4 nodes:
 
 | # | Node | What Happens |
 |:--|:-----|:---|
-| 1 | **analyze** | Gemini reads transcript history. Extracts sentiment, engagement, budget, timeline, authority, need, and objection flags. |
-| 2 | **scoring** | 6-factor composite lead score computed. Thresholds map score → decision. |
-| 3 | **response** | Gemini generates a contextual, business-aware response representing PRISHA.IO. |
-| 4 | **action** | Executes the decision (e.g. books 20-min discovery call, schedules follow-up, or gracefully closes call). |
+| 1 | **analyze** | Gemini reads the full transcript. Extracts sentiment, engagement level, budget, timeline, authority, need, and objection flags. One LLM call per turn. |
+| 2 | **scoring** | 6-factor composite score computed. Thresholds map score → decision. |
+| 3 | **response** | Gemini generates a contextual, business-aware response (max 2 sentences). |
+| 4 | **action** | Executes the decision. Books meeting, schedules follow-up, or ends call with warm-up guard. |
 
 <br>
 
 ## 📊 The Scoring Engine
 
-The agent scores prospective clients against a 6-factor weighted model recalculated on every turn:
+Voxify doesn't guess — it scores every lead against a weighted model recalculated on **every turn**.
 
 | Factor | Weight | What It Measures |
 |:---|:---:|:---|
-| **Budget** | 25% | Project budget extracted from conversation ($5k, $25k, $50k+) |
-| **Need** | 20% | Pain point clarity — web redesign, AI voice automation, CRM needs |
-| **Timeline** | 20% | Project urgency — `immediate` → `6+ months` |
-| **Authority** | 15% | Decision maker level — founder, CEO, marketing director |
-| **Engagement** | 10% | Responsiveness & interest in PRISHA.IO solutions |
-| **Sentiment** | 10% | Emotional tone — positive / neutral / negative |
+| **Budget** | 25% | Dollar amount extracted from conversation (`$50k`, `$75,000`) |
+| **Need** | 20% | Pain point clarity — how badly they need this (Gemini semantic analysis) |
+| **Timeline** | 20% | Urgency — `immediate` → `6+ months` |
+| **Authority** | 15% | Who's talking — `decision_maker` / `influencer` / `researcher` |
+| **Engagement** | 10% | Are they leaning in or brushing off? |
+| **Sentiment** | 10% | Emotional tone — `positive` / `neutral` / `negative` |
 
 ```
 score = (budget×0.25 + need×0.20 + timeline×0.20 + authority×0.15 + engagement×0.10 + sentiment×0.10) × 100
@@ -146,72 +128,116 @@ score = (budget×0.25 + need×0.20 + timeline×0.20 + authority×0.15 + engageme
 
 | Score | Decision | Agent's Action |
 |:---:|:---|:---|
-| ≥ 80 | **BOOK_MEETING** | Book 20-min PRISHA.IO Business Discovery session |
+| ≥ 80 | **BOOK_MEETING** | Suggest specific day/time, share calendar link |
 | ≥ 60 | **STRONG_FOLLOWUP** | Secure commitment, schedule callback |
-| ≥ 40 | **NURTURE** | Share PRISHA.IO insights, ask discovery questions |
+| ≥ 40 | **NURTURE** | Keep warm, ask discovery questions |
 | < 40 | **DROP** | End politely (only after 4+ turns or explicit rejection) |
+
+> **Warm-up guard**: The agent never drops in the first 4 turns. Someone saying *"Hi, who's this?"* won't kill the call.
 
 <br>
 
-## 🎯 PRISHA.IO Objection Playbook
+## 🎯 Objection Handling
 
-The agent handles common business objections using tailored responses:
+The agent detects 5 objection types and responds with business-context-aware counters:
 
-| Objection | Scenario | Agent's Approach |
+| Objection | Trigger | Agent's Response |
 |:---|:---|:---|
-| **price** | Budget concerns | Emphasizes ROI & business growth systems rather than template costs. |
-| **not_interested** | Cold reaction | Offers a 2-minute overview of how local competitors use AI voice receptionists. |
-| **competitor** | Using another agency | Explains PRISHA.IO's unique AI automation & custom digital transformation focus. |
-| **timing** | Not right now | Offers to send the 10-step PRISHA.IO process summary for future reference. |
-| **gatekeeper** | Reaching assistant | Asks politely for the business owner or digital transformation leader. |
+| **price** | Budget concerns | "ROI pays for itself in the first month. Free trial?" |
+| **not_interested** | Cold rejection | "Totally understand — worth 2 minutes to see if this saves 10+ hrs/week?" |
+| **competitor** | Using another solution | "Great — we specialize in the outbound voice channel specifically." |
+| **timing** | Not now | "When's better? I'll send context in the meantime." |
+| **gatekeeper** | Wrong person | "Could you point me to the right person? I'll send a note instead." |
 
-All business knowledge lives in `voice_agent/config/business_context.py`.
+All objection responses live in `config/business_context.py` — change them without touching the agent code.
 
 <br>
 
 ## 🚀 Quick Start
 
 ```bash
-# Clone Repository
-git clone https://github.com/srinathdoggala-tech/AI-sales-agent.git
-cd AI-sales-agent
+# Clone
+git clone https://github.com/adityaanand0001/Voxify-Agentic-Voice-AI.git
+cd Voxify
 
-# Install Dependencies
-python -m pip install -r voice_agent/requirements.txt
+# Install
+pip install -r voice_agent/requirements.txt
 
-# Configure Environment Variables
+# Configure
 cp voice_agent/.env.example voice_agent/.env
-```
+# Add your GEMINI_API_KEY (required for full agent mode)
 
-### Configure `.env`
-Add your API keys to `voice_agent/.env`:
-```env
-GEMINI_API_KEY=AIzaSy...
-ELEVENLABS_API_KEY=sk_...
-ELEVENLABS_VOICE_ID=RABOvaPec1ymXz02oDQi
-TWILIO_ACCOUNT_SID=AC...
-TWILIO_AUTH_TOKEN=...
-TWILIO_PHONE_NUMBER=+1...
-SUPABASE_URL=https://....supabase.co
-SUPABASE_KEY=sb_secret_...
+# Test the scoring engine (no API keys needed)
+python voice_agent/main.py test
+
+# Simulate a full conversation through the agent graph
+python voice_agent/main.py simulate
+
+# Launch the live call server
+python voice_agent/main.py serve
 ```
 
 <br>
 
-## 🧪 Testing & Simulation
+## 🎬 Simulation Demo
 
 ```bash
-# 1. Run full 27-test validation suite
-python test_validation.py
+$ python voice_agent/main.py simulate
 
-# 2. Test scoring engine
-python voice_agent/main.py test
+  Turn 1 | greeting
+    User:    "Hi, who's this?"
+    Agent:   "Hi Mark, this is Aria from Voxify. How are you doing today?"
+    Score:   23.0  →  NURTURE
 
-# 3. Simulate an interactive PRISHA.IO sales call
-python voice_agent/main.py simulate
+  Turn 2 | discovery
+    User:    "I handle procurement for our team. We need something like this."
+    Agent:   "Could you tell me more about what you're looking for?"
+    Score:   38.0  →  NURTURE
 
-# 4. Launch live call WebSocket server
-python voice_agent/main.py serve
+  Turn 3 | qualification
+    User:    "Budget is around 75k, we need it live within 2 months."
+    Agent:   "That's great. Let me follow up with details on how Voxify can help."
+    Score:   68.0  →  STRONG_FOLLOWUP
+
+  Turn 6 | booking
+    User:    "Okay, let's set up a call for next week."
+    Agent:   "Based on what you've shared, let's get something on the calendar.
+              How does Tuesday look?"
+    Score:   82.0  →  BOOK_MEETING
+```
+
+*(Above uses emergency fallback responses. With `GEMINI_API_KEY`, every turn gets unique, contextual responses.)*
+
+<br>
+
+## 🧪 Validation Suite
+
+```bash
+$ python test_validation.py
+
+=== Scoring Engine ===
+  [PASS] Hot lead (60k, immediate, decision maker)  →  BOOK_MEETING
+  [PASS] Warm lead decision                          →  STRONG_FOLLOWUP
+  [PASS] Cold lead decision                          →  DROP
+
+=== Budget Extraction ===
+  [PASS] "50k budget"                                →  50000
+  [PASS] "$75,000"                                   →  75000
+  [PASS] "25 thousand dollars"                       →  25000
+
+=== Timeline & Authority ===
+  [PASS] "ASAP"                                      →  IMMEDIATE
+  [PASS] "I decide"                                  →  DECISION_MAKER
+  [PASS] "run it by my boss"                         →  INFLUENCER
+
+=== Objection Handling ===
+  [PASS] Score drops after objection
+  [PASS] Objection recorded correctly
+
+=== LangGraph Compilation ===
+  [PASS] 4-node agent graph compiles
+
+Results: 27 passed, 0 failed ✓
 ```
 
 <br>
@@ -219,43 +245,116 @@ python voice_agent/main.py serve
 ## 📁 Project Structure
 
 ```
-AI-sales-agent/
+Voxify/
 ├── voice_agent/
 │   ├── main.py                    # CLI: serve | test | simulate
 │   │
-│   ├── config/
-│   │   └── business_context.py    # ⭐ PRISHA.IO company profile & playbook
-│   │
 │   ├── agents/
-│   │   └── listener.py            # Gemini reasoning & prompt orchestrator
+│   │   └── listener.py            # UnifiedAnalyzer + ResponseGenerator (Gemini)
 │   │
 │   ├── graph/
-│   │   └── graph_builder.py       # LangGraph: analyze → score → respond → act
+│   │   ├── graph_builder.py       # LangGraph: analyze → score → respond → act
+│   │   └── nodes.py               # Node exports
 │   │
 │   ├── scoring/
-│   │   └── scoring.py             # 6-factor composite lead scoring
+│   │   └── scoring.py             # 6-factor scoring + decision engine
+│   │
+│   ├── config/
+│   │   └── business_context.py    # ⭐ Edit this to change agent identity
 │   │
 │   ├── state/
-│   │   └── schema.py              # CallState dataclass & schema definitions
+│   │   └── schema.py              # CallState dataclass + enums
 │   │
 │   ├── stt/
-│   │   └── whisper_stream.py      # Streaming OpenAI Whisper STT
+│   │   └── whisper_stream.py      # Streaming Whisper transcription
 │   │
 │   ├── tts/
 │   │   └── elevenlabs_stream.py   # Streaming ElevenLabs TTS
 │   │
 │   ├── telephony/
 │   │   ├── twilio_handler.py      # Twilio call manager
-│   │   └── websocket_server.py    # WebSocket audio bridge server
+│   │   └── websocket_server.py    # Media stream ↔ graph bridge
 │   │
 │   ├── db/
-│   │   └── models.py              # Supabase lead persistence & logs
+│   │   └── models.py              # Supabase persistence
 │   │
-│   └── requirements.txt
+│   └── .env.example
 │
-└── test_validation.py             # 27 validation unit tests
+└── test_validation.py             # 27 tests
 ```
+
+<br>
+
+## 🔧 Configuration
+
+### Environment (.env)
+
+```env
+GEMINI_API_KEY=sk-...              # Primary: semantic analysis & reasoning
+ELEVENLABS_API_KEY=...             # Voice synthesis
+TWILIO_ACCOUNT_SID=...             # Call provider
+TWILIO_AUTH_TOKEN=...
+TWILIO_PHONE_NUMBER=+1...
+SUPABASE_URL=...                   # CRM / lead database
+SUPABASE_ANON_KEY=...
+```
+
+### Business Context (`config/business_context.py`)
+
+This is the single source of truth for your agent's identity. Change anything here and the agent adapts — no prompt engineering needed:
+
+```python
+@dataclass
+class BusinessContext:
+    agent_name: str = "Aria"                 # What the agent calls itself
+    company_name: str = "Voxify"             # Who it represents
+    value_proposition: str = "..."           # The pitch
+    pricing_tiers: list[dict] = [...]        # Your plans
+    objection_responses: dict = {...}        # Counter-playbook
+    do_not_say: list[str] = [...]            # Guardrails
+    calendar_link: str = "..."               # Booking link
+    call_flow: list[str] = [...]             # Conversation structure
+    # ... 20+ configurable fields
+```
+
+<br>
+
+## 🛠 Tech Stack
+
+| Layer | Technology | Role |
+|:---|:---|:---|
+| **Agent Orchestration** | [LangGraph](https://www.langchain.com/langgraph) | State machine, decision routing, turn management |
+| **Reasoning** | [Google Gemini 2.0 Flash](https://ai.google.dev/) | Semantic understanding, response generation |
+| **Speech-to-Text** | [OpenAI Whisper](https://github.com/openai/whisper) | Streaming transcription from audio chunks |
+| **Text-to-Speech** | [ElevenLabs](https://elevenlabs.io/) | Real-time voice synthesis (<500ms latency) |
+| **Telephony** | [Twilio](https://www.twilio.com/) | Call management, WebSocket media streams |
+| **Database** | [Supabase](https://supabase.com/) | Lead CRUD, call logs, booking persistence |
+| **Config** | [Pydantic](https://docs.pydantic.dev/) | Business context & state validation |
+
+<br>
+
+## 🗺 Roadmap
+
+- [ ] Multi-language support (Spanish, German, French, Hindi)
+- [ ] Sentiment-driven dynamic voice tone (pace, pitch, warmth)
+- [ ] Post-call AI summary + email to rep
+- [ ] A/B testing different sales scripts and personas
+- [ ] Slack/email alerts for hot leads (score ≥ 80)
+- [ ] Live dashboard for monitoring active calls
+- [ ] Docker one-command deploy
+- [ ] Native Cal.com / HubSpot booking integration
+- [ ] Voice cloning for branded agent personas
+- [ ] Multi-agent handoff (qualifier → closer)
+
+<br>
 
 ---
 
-### 🌐 Developed for PRISHA.IO Digital Transformation Agency
+<div align="center">
+  <p>
+    <sub>
+      Built with LangGraph + Gemini + ElevenLabs + Twilio + Supabase<br>
+      MIT License · <a href="https://github.com/adityaanand0001/Voxify-Agentic-Voice-AI"><b>github.com/adityaanand0001/Voxify-Agentic-Voice-AI</b></a>
+    </sub>
+  </p>
+</div>
