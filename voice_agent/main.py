@@ -39,7 +39,14 @@ logger = logging.getLogger("call-agent")
 
 WS_HOST = os.getenv("WS_HOST", "0.0.0.0")
 WS_PORT = int(os.getenv("WS_PORT", "8080"))
-WS_BASE_URL = os.getenv("WS_BASE_URL", f"wss://{os.getenv('PUBLIC_HOST', 'localhost')}:{WS_PORT}")
+
+_pub_host = os.getenv("PUBLIC_HOST", "localhost")
+if _pub_host in ("localhost", "127.0.0.1", "0.0.0.0") or ":" in _pub_host:
+    _default_ws_url = f"wss://{_pub_host}:{WS_PORT}"
+else:
+    _default_ws_url = f"wss://{_pub_host}"
+
+WS_BASE_URL = os.getenv("WS_BASE_URL", _default_ws_url)
 
 
 # ── Call orchestrator ───────────────────────────────────────────────────
@@ -243,6 +250,23 @@ def main() -> None:
             print(f"  Score:   {t['score']:.1f} -> {t['decision']} ({t['stage']})")
         print("\n[OK] LangGraph conversation engine works.")
 
+    elif mode == "call":
+        if len(sys.argv) < 3:
+            print("Usage: python voice_agent/main.py call <phone_number> [lead_name]")
+            sys.exit(1)
+        phone = sys.argv[2]
+        name = sys.argv[3] if len(sys.argv) > 3 else "Lead"
+        print(f"\n=== INITIATING OUTBOUND CALL TO {phone} ({name}) ===\n")
+        agent = CallAgent()
+        res = agent.call_lead({"id": "cli-lead", "name": name, "phone": phone})
+        if res:
+            print(f"[SUCCESS] Call Placed!")
+            print(f"  Call SID: {res.get('call_sid')}")
+            print(f"  Status:   {res.get('status')}")
+            print(f"  To:       {res.get('to')}\n")
+        else:
+            print("[FAIL] Failed to initiate call. Check logs.\n")
+
     elif mode == "serve":
         from voice_agent.telephony.websocket_server import start_server
 
@@ -267,10 +291,11 @@ def main() -> None:
                 time.sleep(1)
 
     else:
-        print(f"Usage: python main.py [serve|test|simulate]")
+        print(f"Usage: python main.py [serve|test|simulate|call]")
         print(f"  serve    — Start the WebSocket server for live calls")
         print(f"  test     — Test the scoring engine with sample data")
         print(f"  simulate — Simulate a full conversation through LangGraph")
+        print(f"  call     — Initiate an outbound phone call to a lead")
 
 
 if __name__ == "__main__":

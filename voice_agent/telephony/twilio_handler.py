@@ -38,6 +38,7 @@ class TwilioCallManager:
         stream = Stream(url=ws_url)
         connect.append(stream)
         resp.append(connect)
+        resp.pause(length=3600)
         return str(resp)
 
     def make_call(self, to_number: str, lead_id: str, ws_base_url: str) -> dict | None:
