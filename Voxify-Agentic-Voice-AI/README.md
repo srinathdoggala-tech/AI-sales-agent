@@ -3,10 +3,10 @@
   <pre style="font-family: monospace; font-size: 14px; line-height: 1.2;">
 ██╗   ██╗ ██████╗ ██╗  ██╗██╗███████╗██╗   ██╗
 ██║   ██║██╔═══██╗╚██╗██╔╝██║██╔════╝╚██╗ ██╔╝
-██║   ██║██║   ██║ ╚███╔╝ ██║█████╗   ╚████╔╝ 
+██║   ██║██║   ██║ ╚███╔╝ ██║█████╗   ╚████╔╝
 ╚██╗ ██╔╝██║   ██║ ██╔██╗ ██║██╔══╝    ╚██╔╝  
- ╚████╔╝ ╚██████╔╝██╔╝ ██╗██║██║        ██║   
-  ╚═══╝   ╚═════╝ ╚═╝  ╚═╝╚═╝╚═╝        ╚═╝   
+ ╚████╔╝ ╚██████╔╝██╔╝ ██╗██║██║        ██║
+  ╚═══╝   ╚═════╝ ╚═╝  ╚═╝╚═╝╚═╝        ╚═╝
   </pre>
   <h3>⚡ An AI Agent That Closes Deals Over Voice ⚡</h3>
   <br>
@@ -25,18 +25,18 @@
 
 ---
 
-# 🤖 Prisha Agentic Voice AI — The Autonomous Voice Sales Agent
+# 🤖 Voxify Agentic Voice AI — The Autonomous Voice Sales Agent
 
-**Prisha Agentic Voice AI is not a chatbot. It's not a demo. It's an AI agent that makes real sales calls, thinks on its feet, and books meetings — completely autonomously.**
+**Voxify Agentic Voice AI is not a chatbot. It's not a demo. It's an AI agent that makes real sales calls, thinks on its feet, and books meetings — completely autonomously.**
 
-> An **AI agent** perceives, reasons, decides, and acts. Prisha does all four — over a live phone call, in real time. It listens through Whisper, reasons through Gemini + LangGraph, scores every lead on a 6-factor model, generates natural responses, and speaks through ElevenLabs. Every decision is its own.
+> An **AI agent** perceives, reasons, decides, and acts. Voxify does all four — over a live phone call, in real time. It listens through Whisper, reasons through Gemini + LangGraph, scores every lead on a 6-factor model, generates natural responses, and speaks through ElevenLabs. Every decision is its own.
 
 <br>
 
 ## 🧠 What Makes It An Agent
 
-| Agent Capability | How Prisha Does It |
-|:---|:---|
+| Agent Capability | How Voxify Does It |
+| :--- | :--- |
 | **Perceive** | Streaming Whisper STT transcribes audio in real time |
 | **Reason** | Gemini 2.0 Flash analyzes every utterance — sentiment, intent, objection type |
 | **Decide** | 6-factor weighted scoring engine decides BOOK / FOLLOWUP / NURTURE / DROP |
@@ -99,7 +99,7 @@
 Every turn of the conversation goes through 4 nodes:
 
 | # | Node | What Happens |
-|:--|:-----|:---|
+| :-- | :----- | :--- |
 | 1 | **analyze** | Gemini reads the full transcript. Extracts sentiment, engagement level, budget, timeline, authority, need, and objection flags. One LLM call per turn. |
 | 2 | **scoring** | 6-factor composite score computed. Thresholds map score → decision. |
 | 3 | **response** | Gemini generates a contextual, business-aware response (max 2 sentences). |
@@ -109,10 +109,10 @@ Every turn of the conversation goes through 4 nodes:
 
 ## 📊 The Scoring Engine
 
-Prisha doesn't guess — it scores every lead against a weighted model recalculated on **every turn**.
+Voxify doesn't guess — it scores every lead against a weighted model recalculated on **every turn**.
 
 | Factor | Weight | What It Measures |
-|:---|:---:|:---|
+| :--- | :---: | :--- |
 | **Budget** | 25% | Dollar amount extracted from conversation (`$50k`, `$75,000`) |
 | **Need** | 20% | Pain point clarity — how badly they need this (Gemini semantic analysis) |
 | **Timeline** | 20% | Urgency — `immediate` → `6+ months` |
@@ -127,7 +127,7 @@ score = (budget×0.25 + need×0.20 + timeline×0.20 + authority×0.15 + engageme
 ### Decision Thresholds
 
 | Score | Decision | Agent's Action |
-|:---:|:---|:---|
+| :---: | :--- | :--- |
 | ≥ 80 | **BOOK_MEETING** | Suggest specific day/time, share calendar link |
 | ≥ 60 | **STRONG_FOLLOWUP** | Secure commitment, schedule callback |
 | ≥ 40 | **NURTURE** | Keep warm, ask discovery questions |
@@ -142,7 +142,7 @@ score = (budget×0.25 + need×0.20 + timeline×0.20 + authority×0.15 + engageme
 The agent detects 5 objection types and responds with business-context-aware counters:
 
 | Objection | Trigger | Agent's Response |
-|:---|:---|:---|
+| :--- | :--- | :--- |
 | **price** | Budget concerns | "ROI pays for itself in the first month. Free trial?" |
 | **not_interested** | Cold rejection | "Totally understand — worth 2 minutes to see if this saves 10+ hrs/week?" |
 | **competitor** | Using another solution | "Great — we specialize in the outbound voice channel specifically." |
@@ -157,8 +157,8 @@ All objection responses live in `config/business_context.py` — change them wit
 
 ```bash
 # Clone
-git clone https://github.com/srinathdoggala-tech/AI-sales-agent.git
-cd AI-sales-agent
+git clone https://github.com/adityaanand0001/Voxify-Agentic-Voice-AI.git
+cd Voxify
 
 # Install
 pip install -r voice_agent/requirements.txt
@@ -186,7 +186,7 @@ $ python voice_agent/main.py simulate
 
   Turn 1 | greeting
     User:    "Hi, who's this?"
-    Agent:   "Hi Mark, this is Prisha from prisha.io. How are you doing today?"
+    Agent:   "Hi Mark, this is Aria from Voxify. How are you doing today?"
     Score:   23.0  →  NURTURE
 
   Turn 2 | discovery
@@ -196,7 +196,7 @@ $ python voice_agent/main.py simulate
 
   Turn 3 | qualification
     User:    "Budget is around 75k, we need it live within 2 months."
-    Agent:   "That's great. Let me follow up with details on how prisha.io can help."
+    Agent:   "That's great. Let me follow up with details on how Voxify can help."
     Score:   68.0  →  STRONG_FOLLOWUP
 
   Turn 6 | booking
@@ -306,8 +306,8 @@ This is the single source of truth for your agent's identity. Change anything he
 ```python
 @dataclass
 class BusinessContext:
-    agent_name: str = "Aria"                 # What the agent calls itself
-    company_name: str = "Voxify"             # Who it represents
+    agent_name: str = "Prisha"                 # What the agent calls itself
+    company_name: str = "prisha.io"             # Who it represents
     value_proposition: str = "..."           # The pitch
     pricing_tiers: list[dict] = [...]        # Your plans
     objection_responses: dict = {...}        # Counter-playbook
@@ -322,7 +322,7 @@ class BusinessContext:
 ## 🛠 Tech Stack
 
 | Layer | Technology | Role |
-|:---|:---|:---|
+| :--- | :--- | :--- |
 | **Agent Orchestration** | [LangGraph](https://www.langchain.com/langgraph) | State machine, decision routing, turn management |
 | **Reasoning** | [Google Gemini 2.0 Flash](https://ai.google.dev/) | Semantic understanding, response generation |
 | **Speech-to-Text** | [OpenAI Whisper](https://github.com/openai/whisper) | Streaming transcription from audio chunks |

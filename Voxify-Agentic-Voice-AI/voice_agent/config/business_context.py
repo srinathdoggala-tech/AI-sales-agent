@@ -12,17 +12,17 @@ class BusinessContext:
     """Full business context for the AI sales call agent."""
 
     # ── Company Identity ──────────────────────────────────────────────────
-    agent_name: str = "Prisha"
+    agent_name: str = "prisha"
     company_name: str = "prisha.io"
     company_description: str = (
-        "prisha.io gives your sales pipeline a voice. We build AI voice agents "
+        "prisha-services gives your sales pipeline a voice. We build AI voice agents "
         "that make outbound calls, qualify leads in real time, handle objections "
         "naturally, and book meetings — all while sounding completely human. "
-        "From cold outreach to warm follow-ups, prisha.io converts conversations into pipeline."
+        "From cold outreach to warm follow-ups, prisha-services converts conversations into pipeline."
     )
 
     # ── Product / Service ─────────────────────────────────────────────────
-    product_name: str = "Prisha Voice Agent"
+    product_name: str = "Voxify Voice Agent"
     product_description: str = (
         "A production-grade AI voice agent that handles the entire outbound "
         "sales call lifecycle. Powered by LangGraph orchestration, Gemini "
@@ -31,7 +31,7 @@ class BusinessContext:
         "watch your pipeline grow."
     )
     value_proposition: str = (
-        "Cut prospecting time by 80%. Prisha makes 100+ calls per day, "
+        "Cut prospecting time by 80%. Voxify makes 100+ calls per day, "
         "qualifies every lead against your criteria, and passes only booked "
         "meetings to your human reps. Customers see 3x more qualified "
         "meetings in their first month. Your pipeline, amplified."
